@@ -55,9 +55,9 @@
             <span class="venue2">This decision does not affect your actual use in other venues</span>
 
             <ul>
-              <li v-for="(item, index) in city1"  @click="beijing(index)" :class=item.isA>
+              <li v-for="(item, index) in city"  @click="beijing(index)">
                 <span></span>
-                <span class="changText">{{item.city2}}</span>
+                <span class="changText">{{item}}</span>
                 &nbsp;&nbsp;
                 <span></span>
               </li>
@@ -101,13 +101,6 @@
             "Beijing Taikoo Li",
             "Beijing Gaomao"
           ],
-          city1:[
-            {city2:"Beijing Taikoo Li",isA:"huiSe"},
-            {city2:"Beijing Gaomao",isA:"huiSe"},
-            {city2:"Beijing Taikoo Li",isA:"huiSe"},
-            {city2:"Beijing Gaomao",isA:"huiSe"}
-
-          ],
           classList:[
             "false",
             "false",
@@ -148,12 +141,8 @@
           this.$refs.createPass.style.display="none";
           this.$refs.venue.style.display="block"
         },
-        beijing(index1){
-          this.city1.filter(function (item,index) {
-           item.isA="huiSe";
-
-          })
-          this.city1[index1].isA="heiSe"
+        beijing(index){
+          console.log(this.classList[index])
         }
       },
     components:{
@@ -364,7 +353,7 @@
       line-height 0.25rem
       margin-top 25%
       padding 0 15%
-    .huiSe
+    li
       width 100%
       padding 0 20%
       .changText
@@ -386,28 +375,6 @@
          background url("./duiHaoH@3x.png") no-repeat
          background-size 100% 100%
          vertical-align middle
-    .heiSe
-      width 100%
-      padding 0 20%
-      .changText
-        font-size 0.2rem
-        font-family 'NotoSansCJKsc-Bold'
-        vertical-align middle
-        color: #000
-      span:nth-of-type(1)
-        display inline-block
-        width 0.2rem
-        height 0.3rem
-        background url("./dingWeiB@3x.png") no-repeat
-        background-size 100% 100%
-        vertical-align middle
-      span:nth-of-type(3)
-        display inline-block
-        width 0.3rem
-        height 0.25rem
-        background url("./duiHaoB@3x.png") no-repeat
-        background-size 100% 100%
-        vertical-align middle
     button
       background #fd774c
       border 0
