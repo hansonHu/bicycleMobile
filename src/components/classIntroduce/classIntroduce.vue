@@ -60,15 +60,18 @@
   img
     width 100%
   span:nth-of-type(1)
+    font-family "Montserrat-Regular";
     font-size 0.48rem
     color #fc6533
   span:nth-of-type(2)
+    font-family "Montserrat-Light";
     font-size 0.48rem
     color #fb9879
   p
     font-size 0.24rem
     line-height 0.3rem
     margin-top 0.2rem
+    font-family "NotoSansCJKsc-Regulars"
   a
     display inline-block
     width 2rem
@@ -102,6 +105,7 @@
       right 0
       margin 0 auto
       z-index 1
+      font-family "Montserrat-Light"
     .zhezhao
       display inline-block
       width 100%
