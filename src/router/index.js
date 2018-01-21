@@ -4,6 +4,9 @@ import login from "../components/bicycleLogin/login";
 import downApp from "../components/downApp/downApp";
 import classIntroduce from "../components/classIntroduce/classIntroduce";
 import main from "../components/main/main"
+import recruit from "../components/recruit/recruit"
+import venueList from "../components/venueList/venueList"
+import activityList from "../components/activityList/activityList"
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -24,6 +27,18 @@ export default new VueRouter({
     {
       path:"/login",
       component:login
+    },
+    {
+      path:"/recruit",
+      component:recruit
+    },
+    {
+      path:"/venueList",
+      component:venueList
+    },
+    {
+      path:"/activityList",
+      component:activityList
     }
   ]
 })

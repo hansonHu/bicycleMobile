@@ -72,6 +72,7 @@
 <script type="text/ecmascript-6">
   import byHeader from "../byHeader/byHeader";
   import axios from "axios"
+  import qs from "qs";
 
     export default {
       mounted:function () {
@@ -134,7 +135,7 @@
             };
 
             console.log(this.form.username11,this.form.userpower)
-            axios.post("http://spacecycle/?c=apiLogin&m=doIssueSMS ",obj,{dataType:"jsonp"})
+            axios.post("spacecycle/?c=apiLogin&m=doIssueSMS ",qs.stringify(obj))
               .then(function (response) {
                 console.log(response)
               })

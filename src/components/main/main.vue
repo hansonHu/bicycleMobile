@@ -5,11 +5,24 @@
     <router-link to="/classIntroduce">课程详情</router-link>
     <br>
     <router-link to="/login">login</router-link>
+    <br>
+    <router-link to="/recruit">社会招聘</router-link>
+    <br>
+    <router-link to="/venueList">场馆列表</router-link>
+    <br>
+    <router-link to="/activityList">活动列表</router-link>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  export default {}
+  export default {
+
+    data(){
+      return{
+
+      }
+    }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
