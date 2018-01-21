@@ -50,19 +50,18 @@
         </el-form>
       </div>
       <div class="venue" ref="venue">
-
             <span class="venue1">CHOOSE THE SITE YOU OFTEN USE</span>
             <span class="venue2">This decision does not affect your actual use in other venues</span>
-
-            <ul>
-              <li v-for="(item, index) in city1"  @click="beijing(index)" :class=item.isA>
-                <span></span>
-                <span class="changText">{{item.city2}}</span>
-                &nbsp;&nbsp;
-                <span></span>
-              </li>
-            </ul>
-
+            <div class="wrapper" ref="wrapper">
+              <ul class="content">
+                <li v-for="(item, index) in city1"  @click="beijing(index)" :class=item.isA>
+                  <span></span>
+                  <span class="changText">{{item.city2}}</span>
+                  &nbsp;&nbsp;
+                  <span></span>
+                </li>
+              </ul>
+            </div>
             <el-button>DONE</el-button>
 
       </div>
@@ -72,9 +71,12 @@
 
 <script type="text/ecmascript-6">
   import byHeader from "../byHeader/byHeader";
-
+  import axios from "axios"
 
     export default {
+      mounted:function () {
+
+      },
       data() {
         return {
           form:{
@@ -105,6 +107,10 @@
             {city2:"Beijing Taikoo Li",isA:"huiSe"},
             {city2:"Beijing Gaomao",isA:"huiSe"},
             {city2:"Beijing Taikoo Li",isA:"huiSe"},
+            {city2:"Beijing Gaomao",isA:"huiSe"},
+            {city2:"Beijing Taikoo Li",isA:"huiSe"},
+            {city2:"Beijing Gaomao",isA:"huiSe"},
+            {city2:"Beijing Taikoo Li",isA:"huiSe"},
             {city2:"Beijing Gaomao",isA:"huiSe"}
 
           ],
@@ -119,12 +125,27 @@
         }
       },
       methods: {
-        onSubmit() {
-          console.log('submit!');
+
+          onSubmit() {
+          // console.log('submit!');
+            let obj={
+              phone:this.form.username11,
+              location_id:this.form.userpower
+            };
+
+            console.log(this.form.username11,this.form.userpower)
+            axios.post("http://spacecycle/?c=apiLogin&m=doIssueSMS ",obj,{dataType:"jsonp"})
+              .then(function (response) {
+                console.log(response)
+              })
+              .catch(function (error) {
+                console.log(error)
+              })
         },
         onSubmit2(){
           this.$refs.verification.style.display="none";
-          this.$refs.createPass.style.display="block"
+          this.$refs.createPass.style.display="block";
+          console.log(this.$refs.wrapper);
 
         },
         onSubmitSend(){
@@ -152,19 +173,22 @@
           this.city1.filter(function (item,index) {
            item.isA="huiSe";
 
-          })
+          });
           this.city1[index1].isA="heiSe"
         }
       },
     components:{
       byHeader
 
+
     }
 
     }
+
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+  @import "../../common/mixins.styl"
 #logoIn
   position relative
   img
@@ -364,57 +388,61 @@
       line-height 0.25rem
       margin-top 25%
       padding 0 15%
-    .huiSe
-      width 100%
-      padding 0 20%
-      .changText
-        font-size 0.2rem
-        font-family 'NotoSansCJKsc-Bold'
-        vertical-align middle
-        color: #dddddd
-      span:nth-of-type(1)
-        display inline-block
-        width 0.2rem
-        height 0.3rem
-        background url("./dingWeiH@3x.png") no-repeat
-        background-size 100% 100%
-        vertical-align middle
-      span:nth-of-type(3)
-         display inline-block
-         width 0.3rem
-         height 0.25rem
-         background url("./duiHaoH@3x.png") no-repeat
-         background-size 100% 100%
-         vertical-align middle
-    .heiSe
-      width 100%
-      padding 0 20%
-      .changText
-        font-size 0.2rem
-        font-family 'NotoSansCJKsc-Bold'
-        vertical-align middle
-        color: #000
-      span:nth-of-type(1)
-        display inline-block
-        width 0.2rem
-        height 0.3rem
-        background url("./dingWeiB@3x.png") no-repeat
-        background-size 100% 100%
-        vertical-align middle
-      span:nth-of-type(3)
-        display inline-block
-        width 0.3rem
-        height 0.25rem
-        background url("./duiHaoB@3x.png") no-repeat
-        background-size 100% 100%
-        vertical-align middle
-    button
-      background #fd774c
-      border 0
-      width 40%
-      border-radius 25px
-      color #ffffff
-      margin 0.4rem 30%
+    .wrapper
+      height 3rem
+      overflow-x hidden
+      overflow-y scroll
+      .huiSe
+          width 100%
+          padding 0 20%
+          .changText
+            font-size 0.2rem
+            font-family 'NotoSansCJKsc-Bold'
+            vertical-align middle
+            color: #dddddd
+          span:nth-of-type(1)
+            display inline-block
+            width 0.2rem
+            height 0.3rem
+            bg-image('./dingWeiH')
+            background-size 100% 100%
+            vertical-align middle
+          span:nth-of-type(3)
+             display inline-block
+             width 0.3rem
+             height 0.25rem
+             vertical-align middle
+             bg-image('./duiHaoH')
+             background-size 100% 100%
+        .heiSe
+          width 100%
+          padding 0 20%
+          .changText
+            font-size 0.2rem
+            font-family 'NotoSansCJKsc-Bold'
+            vertical-align middle
+            color: #000
+          span:nth-of-type(1)
+            display inline-block
+            width 0.2rem
+            height 0.3rem
+            bg-image('./dingWeiB')
+            background-size 100% 100%
+            vertical-align middle
+          span:nth-of-type(3)
+            display inline-block
+            width 0.3rem
+            height 0.25rem
+            bg-image('./duiHaoB')
+            background-size 100% 100%
+            vertical-align middle
+     button
+          background #fd774c
+          border 0
+          width 40%
+          border-radius 25px
+          color #ffffff
+          margin 0.4rem 30%
 
 
 </style>
