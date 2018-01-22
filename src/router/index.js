@@ -7,6 +7,8 @@ import main from "../components/main/main"
 import recruit from "../components/recruit/recruit"
 import venueList from "../components/venueList/venueList"
 import activityList from "../components/activityList/activityList"
+import coachList from "../components/coachList/coachList"
+import coachXiang from "../components/coachXiang/coachXiang"
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -39,6 +41,14 @@ export default new VueRouter({
     {
       path:"/activityList",
       component:activityList
+    },
+    {
+      path:"/coachList",
+      component:coachList
+    },
+    {
+      path:"/coachList/coachXiang",
+      component:coachXiang
     }
   ]
 })

@@ -134,7 +134,7 @@
               location_id:this.form.userpower
             };
 
-            console.log(this.form.username11,this.form.userpower)
+            console.log(this.form.username11,this.form.userpower);
             axios.post("spacecycle/?c=apiLogin&m=doIssueSMS ",qs.stringify(obj))
               .then(function (response) {
                 console.log(response)

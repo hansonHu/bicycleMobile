@@ -52,6 +52,7 @@
       img
         width 100%
         height 100%
+        display block
       .venueLi
         font-size 0.2rem
         color: white
