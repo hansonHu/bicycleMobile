@@ -8,7 +8,7 @@
           <div class="huoActive clearfix">
             <span class="iconImg"></span>
             <span>{{item.address}}</span>
-            <a href="javascript:;">加入我们</a>
+            <router-link to="/activityList/activityClass">加入我们</router-link>
           </div>
         </div>
         <div class="filter">

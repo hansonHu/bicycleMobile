@@ -35,9 +35,10 @@
             <span  v-for="(item,index) in taIndex" @click="musicCoach(index)" :class=item.isClass>{{item.name}}</span>
           </div>
           <div class="musicOut clearfix" :class="this.taIndex[0].isShow">
-              <span></span>
-              <span>Playlist</span>
-              <img src="./QQlogo@2x.png" alt="">
+              <!--<span></span>-->
+              <!--<span>Playlist</span>-->
+              <!--<img src="./QQlogo@2x.png" alt="">-->
+            <iframe src="http://www.dianyintai.com/playlist.html?uid=wpCpG+cfVomCfEKokA&playlist_id=lpv5EeVLVYiCeEui" frameborder="0" width="100%" height="400px" style="float: right;"></iframe>
           </div>
           <div class="sceneOut clearfix" :class="this.taIndex[2].isShow">
             <div class="borderPx"></div>

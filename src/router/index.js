@@ -9,6 +9,7 @@ import venueList from "../components/venueList/venueList"
 import activityList from "../components/activityList/activityList"
 import coachList from "../components/coachList/coachList"
 import coachXiang from "../components/coachXiang/coachXiang"
+import activityClass from "../components/activityClass/activityClass"
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -49,6 +50,10 @@ export default new VueRouter({
     {
       path:"/coachList/coachXiang",
       component:coachXiang
+    },
+    {
+      path:"/activityList/activityClass",
+      component:activityClass
     }
   ]
 })
