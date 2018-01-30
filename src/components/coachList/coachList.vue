@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <byHeader></byHeader>
-    <div class="clearfix">
-      <div v-for="(item,index) in data2" :key="index" class="coachList">
-        <img :src="item.src">
-        <span class="coactName">{{item.name}}</span>
-        <span class="coactType">{{item.type}}</span>
-        <router-link to="/coachList/coachXiang">MORE</router-link>
+  <div class="coachListOut" ref="coachListOut">
+    <div>
+      <byHeader></byHeader>
+      <div class="clearfix">
+        <div v-for="(item,index) in data2" :key="index" class="coachList">
+          <img :src="item.src">
+          <span class="coactName">{{item.name}}</span>
+          <span class="coactType">{{item.type}}</span>
+          <router-link to="/coachList/coachXiang">MORE</router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -14,6 +16,7 @@
 
 <script type="text/ecmascript-6">
   import byHeader from "../byHeader/byHeader"
+  import BScroll from 'better-scroll'
     export default {
       data(){
         return{
@@ -65,7 +68,16 @@
       },
     components:{
       byHeader
-    }
+    },
+
+  mounted(){
+    this.$refs.coachListOut.style.height=document.documentElement.clientWidth/100*2+"rem";
+    let scroll = new BScroll('.coachListOut',{
+      click:true
+    });
+
+
+  }
     }
 </script>
 

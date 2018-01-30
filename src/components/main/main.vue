@@ -13,6 +13,8 @@
     <router-link to="/activityList">活动列表</router-link>
     <br>
     <router-link to="/coachList">教练列表</router-link>
+    <br>
+    <router-link to="/fullMedia">全媒体列表</router-link>
 
   </div>
 </template>

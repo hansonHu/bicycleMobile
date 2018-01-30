@@ -1,26 +1,30 @@
 <template>
-    <div>
-      <byHeader></byHeader>
+    <div class="activeListOut" ref="activeListOut">
       <div>
-        <div v-for="(item,index) in huoImg" class="huoDong">
-          <img :src=item.src>
-          <span class="roomHuo">{{item.text}}</span>
-          <div class="huoActive clearfix">
-            <span class="iconImg"></span>
-            <span>{{item.address}}</span>
-            <router-link to="/activityList/activityClass">加入我们</router-link>
+        <byHeader></byHeader>
+        <div>
+          <div v-for="(item,index) in huoImg" class="huoDong">
+            <img :src=item.src>
+            <span class="roomHuo">{{item.text}}</span>
+            <div class="huoActive clearfix">
+              <span class="iconImg"></span>
+              <span>{{item.address}}</span>
+              <router-link to="/activityList/activityClass">加入我们</router-link>
+            </div>
           </div>
         </div>
-        <div class="filter">
-          <span></span>&nbsp;
-          <span>FILTER</span>
-        </div>
+
+      </div>
+      <div class="filter">
+        <span></span>&nbsp;
+        <span>FILTER</span>
       </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
   import byHeader from "../byHeader/byHeader"
+  import BScroll from 'better-scroll'
     export default {
     data(){
      return{
@@ -39,13 +43,36 @@
            src:"../../static/images/img11.png",
            text:"ROCK FORM EAST TO WEST",
            address:"SHANGHAI TAIKOO HUI"
+         },
+         {
+           src:"../../static/images/img11.png",
+           text:"ROCK FORM EAST TO WEST",
+           address:"SHANGHAI TAIKOO HUI"
+         }
+         ,  {
+           src:"../../static/images/img11.png",
+           text:"ROCK FORM EAST TO WEST",
+           address:"SHANGHAI TAIKOO HUI"
+         }
+         ,  {
+           src:"../../static/images/img11.png",
+           text:"ROCK FORM EAST TO WEST",
+           address:"SHANGHAI TAIKOO HUI"
          }
        ]
      }
     },
     components:{
       byHeader
-    }
+    },
+      mounted(){
+        this.$refs.activeListOut.style.height=document.documentElement.clientWidth/100*2+"rem";
+        let scroll = new BScroll('.activeListOut',{
+          click:true
+        });
+
+
+      }
     }
 </script>
 

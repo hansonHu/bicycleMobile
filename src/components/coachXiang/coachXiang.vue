@@ -1,15 +1,16 @@
 <template>
-  <div>
-    <byHeader></byHeader>
+  <div class="coachXiangOut" ref="coachXiangOut">
     <div>
-      <div class="coachTop">
-        <img :src=coachXi.src>
-        <div class="clearfix">
-          <span class="coachClass">{{coachXi.day}} &nbsp;| &nbsp;{{coachXi.time}}&nbsp; | &nbsp;{{coachXi.type}}&nbsp; |&nbsp; {{coachXi.class}}</span>
-          <span class="choiceClass">选择课程</span>
+      <byHeader></byHeader>
+      <div>
+        <div class="coachTop">
+          <img :src=coachXi.src>
+          <div class="clearfix">
+            <span class="coachClass">{{coachXi.day}} &nbsp;| &nbsp;{{coachXi.time}}&nbsp; | &nbsp;{{coachXi.type}}&nbsp; |&nbsp; {{coachXi.class}}</span>
+            <span class="choiceClass">选择课程</span>
+          </div>
         </div>
-      </div>
-      <div class="coachMain">
+        <div class="coachMain">
           <div class="coachMain1 clearfix">
             <span class="classType">{{coachXi.classType}}</span>
             <span class="share"></span>
@@ -35,9 +36,9 @@
             <span  v-for="(item,index) in taIndex" @click="musicCoach(index)" :class=item.isClass>{{item.name}}</span>
           </div>
           <div class="musicOut clearfix" :class="this.taIndex[0].isShow">
-              <!--<span></span>-->
-              <!--<span>Playlist</span>-->
-              <!--<img src="./QQlogo@2x.png" alt="">-->
+            <!--<span></span>-->
+            <!--<span>Playlist</span>-->
+            <!--<img src="./QQlogo@2x.png" alt="">-->
             <iframe src="http://www.dianyintai.com/playlist.html?uid=wpCpG+cfVomCfEKokA&playlist_id=lpv5EeVLVYiCeEui" frameborder="0" width="100%" height="400px" style="float: right;"></iframe>
           </div>
           <div class="sceneOut clearfix" :class="this.taIndex[2].isShow">
@@ -48,34 +49,37 @@
               </li>
             </ul>
           </div>
-      </div>
-      <div class="zuiOut" :class="this.taIndex[1].isShow">
-        <div class="border1px"></div>
-        <img :src="this.favourite1.src">
-        <div class="zuiAi1">
-          <span>SONG</span>
-          <span>{{this.favourite1.song}}</span>
         </div>
-        <div class="zuiAi1">
-          <span>MUSIC</span>
-          <span>{{this.favourite1.music}}</span>
+        <div class="zuiOut" :class="this.taIndex[1].isShow">
+          <div class="border1px"></div>
+          <img :src="this.favourite1.src">
+          <div class="zuiAi1">
+            <span>SONG</span>
+            <span>{{this.favourite1.song}}</span>
+          </div>
+          <div class="zuiAi1">
+            <span>MUSIC</span>
+            <span>{{this.favourite1.music}}</span>
+          </div>
+          <div class="zuiAi1">
+            <span>CELEBRITYY</span>
+            <span>{{this.favourite1.celebrityy}}</span>
+          </div>
+          <div class="zuiAi1">
+            <span>FOOD</span>
+            <span>{{this.favourite1.food}}</span>
+          </div>
         </div>
-        <div class="zuiAi1">
-          <span>CELEBRITYY</span>
-          <span>{{this.favourite1.celebrityy}}</span>
-        </div>
-        <div class="zuiAi1">
-          <span>FOOD</span>
-          <span>{{this.favourite1.food}}</span>
-        </div>
-      </div>
 
+      </div>
     </div>
   </div>
+
 </template>
 
 <script type="text/ecmascript-6">
   import byHeader from "../byHeader/byHeader"
+  import BScroll from 'better-scroll'
     export default {
     data(){
       return{
@@ -107,6 +111,7 @@
         },
         imgages:[
           {src:"../../static/images/img04.png"},
+          {src:"../../static/images/img06.png"},
           {src:"../../static/images/img06.png"}
         ]
 
@@ -126,7 +131,11 @@
       },
     components:{
       byHeader
-    }
+    },
+      mounted(){
+        this.$refs.coachXiangOut.style.height=document.documentElement.clientWidth/100*2+"rem";
+        let scroll = new BScroll('.coachXiangOut');
+      }
     }
 </script>
 

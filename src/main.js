@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import App from './App';
+import axios from 'axios'
 import "./common/overall.css";
 import "./common/mixins.styl";
 import "./common/reset.css";
@@ -154,7 +155,7 @@ Vue.prototype.$prompt = MessageBox.prompt;
 Vue.prototype.$notify = Notification;
 Vue.prototype.$message = Message;
 Vue.config.productionTip = false;
-
+Vue.prototype.$http = axios;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

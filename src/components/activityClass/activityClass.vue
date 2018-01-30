@@ -1,34 +1,36 @@
 <template>
-  <div>
-    <byHeader></byHeader>
-    <img :src=activData.bigImg class="actiTop1">
-    <div class="activity_top">
-      <span>{{activData.actitle}}</span>
-      <div class="titleData clearfix">
-        <span><i class="acRi"></i>{{activData.acdate}}</span>
-        <span><i class="acShi"></i>{{activData.actime}}</span>
-        <span><i class="acAdd"></i>{{activData.acaddress}}</span>
-      </div>
-      <div class="activ_main">
+  <div class="activeOut" ref="activeOut">
+    <div class="activeOut-content">
+      <byHeader></byHeader>
+      <img :src=activData.bigImg class="actiTop1">
+      <div class="activity_top">
+        <span>{{activData.actitle}}</span>
+        <div class="titleData clearfix">
+          <span><i class="acRi"></i>{{activData.acdate}}</span>
+          <span><i class="acShi"></i>{{activData.actime}}</span>
+          <span><i class="acAdd"></i>{{activData.acaddress}}</span>
+        </div>
+        <div class="activ_main">
         <span>
           {{activData.jiaban}}
         </span>
-        <p>
-          {{activData.jieshao}}
-        </p>
-      </div>
-      <div class="ac_select clearfix">
-        <span>选择时间</span>
-        <select name="" id="acSelect" v-model="value">
-          <option v-for="(item,index) in selectData" :value="item" :key="index">{{item}}</option>
-        </select>
-      </div>
-      <div class="ac_nav">
-        <span>报名</span>
-        <a href="javascript:;"><span>SHARE &nbsp;&nbsp;<i></i></span></a>
-      </div>
-      <div class="ac_music">
-        <iframe src="http://www.dianyintai.com/playlist.html?uid=wpCpG+cfVomCfEKokA&playlist_id=lpv5EeVLVYiCeEui" frameborder="0" width="100%" height="600px" style="float: right;"></iframe>
+          <p>
+            {{activData.jieshao}}
+          </p>
+        </div>
+        <div class="ac_select clearfix">
+          <span>选择时间</span>
+          <select name="" id="acSelect" v-model="value">
+            <option v-for="(item,index) in selectData" :value="item" :key="index">{{item}}</option>
+          </select>
+        </div>
+        <div class="ac_nav">
+          <span>报名</span>
+          <a href="javascript:;"><span>SHARE &nbsp;&nbsp;<i></i></span></a>
+        </div>
+        <div class="ac_music">
+          <iframe src="http://www.dianyintai.com/playlist.html?uid=wpCpG+cfVomCfEKokA&playlist_id=lpv5EeVLVYiCeEui" frameborder="0" width="100%" height="600px" style="float: right;"></iframe>
+        </div>
       </div>
     </div>
   </div>
@@ -36,6 +38,7 @@
 
 <script type="text/ecmascript-6">
   import byHeader from "../byHeader/byHeader"
+  import BScroll from 'better-scroll'
     export default {
     data(){
       return{
@@ -64,7 +67,16 @@
     },
     components:{
       byHeader
-    }
+    },
+      mounted(){
+        // this.$refs.activeOut.style.height=document.documentElement.clientWidth/100*2+"rem";
+        // let scroll = new BScroll('.activeOut',{
+        //   click:true
+        // });
+
+
+      }
+
     }
 </script>
 
@@ -147,6 +159,10 @@
         border-radius  0 20px 20px 0
         font-size 0.2rem
         color #fb3f00
+        -webkit-appearance none
+        -moz-appearance none
+        appearance none
+        -webkit-tap-highlight-color rgba(0,0,0,0)
     .ac_nav
       width 100%
       span
@@ -169,6 +185,9 @@
           background-size 100% 100%
     .ac_music
       margin-top 1.4rem
+  #active_map
+    width 100%
+
 
 
 

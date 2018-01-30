@@ -10,6 +10,9 @@ import activityList from "../components/activityList/activityList"
 import coachList from "../components/coachList/coachList"
 import coachXiang from "../components/coachXiang/coachXiang"
 import activityClass from "../components/activityClass/activityClass"
+import changXiang from "../components/changXiang/changXiang"
+import fullMedia from "../components/fullMedia/fullMedia"
+import fullXiang from "../components/fullXiang/fullXiang"
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -40,6 +43,10 @@ export default new VueRouter({
       component:venueList
     },
     {
+      path:"/venueList/changXiang",
+      component:changXiang
+    },
+    {
       path:"/activityList",
       component:activityList
     },
@@ -54,6 +61,14 @@ export default new VueRouter({
     {
       path:"/activityList/activityClass",
       component:activityClass
+    },
+    {
+      path:"/fullMedia",
+      component:fullMedia
+    },
+    {
+      path:"/fullMedia/fullXiang",
+      component:fullXiang
     }
   ]
 })

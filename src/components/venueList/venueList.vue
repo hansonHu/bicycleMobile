@@ -1,20 +1,27 @@
 <template>
-  <div>
-    <byHeader></byHeader>
-    <div class="venueMain">
-      <div v-for="(item,index) in bgImg" class="venueList" :key="index">
-        <img :src=item.src>
-        <div class="venueLi">
-          <span></span>
-          <span>{{item.text}}</span>
+  <div class="wrapperVenList" ref="wrapperVenList">
+    <div class="content">
+      <byHeader></byHeader>
+      <div class="venueMain">
+        <div v-for="(item,index) in bgImg" class="venueList" :key="index">
+          <img :src=item.src>
+          <router-link to="/venueList/changXiang">
+            <div class="venueLi">
+              <span></span>
+              <span>{{item.text}}</span>
+            </div>
+          </router-link>
+
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import byHeader from "../byHeader/byHeader"
+  import BScroll from 'better-scroll'
 
     export default {
       data(){
@@ -29,6 +36,39 @@
             {src:"../../static/images/img10.png",
               text:"BEIJING TAI KU LI"
             }
+            ,
+            {src:"../../static/images/img10.png",
+              text:"BEIJING TAI KU LI"
+            }
+            ,
+            {src:"../../static/images/img10.png",
+              text:"BEIJING TAI KU LI"
+            }
+            ,
+            {src:"../../static/images/img10.png",
+              text:"BEIJING TAI KU LI"
+            }
+            ,
+            {src:"../../static/images/img10.png",
+              text:"BEIJING TAI KU LI"
+            },
+            {src:"../../static/images/img10.png",
+              text:"BEIJING TAI KU LI"
+            }
+            ,
+            {src:"../../static/images/img10.png",
+              text:"BEIJING TAI KU LI"
+            }
+            ,
+            {src:"../../static/images/img10.png",
+              text:"BEIJING TAI KU LI"
+            }
+            ,
+            {src:"../../static/images/img10.png",
+              text:"BEIJING TAI KU LI"
+            }
+
+
           ]
 
 
@@ -36,6 +76,12 @@
       },
       components:{
         byHeader
+      },
+      mounted(){
+        this.$refs.wrapperVenList.style.height=document.documentElement.clientWidth/100*2+"rem";
+        let scroll = new BScroll('.wrapperVenList',{click:true});
+
+
       }
     }
 </script>

@@ -1,23 +1,24 @@
 <template>
-  <div class="recruitOut">
-    <byHeader></byHeader>
-    <div class="searchJs">
-      <span class="seachTitle">JOIN US</span>
-      <span class="seachText">
+  <div class="recruitOut" ref="recruitOut">
+    <div class="content">
+      <byHeader></byHeader>
+      <div class="searchJs">
+        <span class="seachTitle">JOIN US</span>
+        <span class="seachText">
         Spacecycle provide a better working
         environment for you.
       </span>
-      <div class="inputOut">
-        <input type="text" placeholder="Job title">
-        <span class="seachJob"></span>
+        <div class="inputOut">
+          <input type="text" placeholder="Job title">
+          <span class="seachJob"></span>
+        </div>
+        <div class="inputOut">
+          <input type="text" placeholder="Shanghai">
+          <span class="dingZhao"></span>
+        </div>
+        <el-button>search</el-button>
       </div>
-      <div class="inputOut">
-        <input type="text" placeholder="Shanghai">
-        <span class="dingZhao"></span>
-      </div>
-      <el-button>search</el-button>
-    </div>
-    <div class="recruitMain" v-for="(item,index) in massage" :key=index>
+      <div class="recruitMain" v-for="(item,index) in massage" :key=index>
         <div class="titleTop clearfix">
           <span>{{item.jobWork}}</span>
           <span>{{item.peopleNum}} <i>PEOPLE</i></span>
@@ -31,20 +32,20 @@
           <p>{{item.Responsibility}}</p>
         </div>
         <div class="Requirement">
-        <span>Requirement</span>
-        <p v-for="(item1,index) in item.Requirement" :key=index>{{item1}}</p>
-      </div>
+          <span>Requirement</span>
+          <p v-for="(item1,index) in item.Requirement" :key=index>{{item1}}</p>
+        </div>
         <div class="btnA clearfix">
           <a href="javascript:;">SEND</a>
         </div>
-
+      </div>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import byHeader from "../byHeader/byHeader"
-
+  import BScroll from 'better-scroll'
     export default {
     data(){
       return{
@@ -74,7 +75,11 @@
     },
     components:{
       byHeader
-    }
+    },
+      mounted(){
+        this.$refs.recruitOut.style.height=document.documentElement.clientWidth/100*2+"rem";
+        let scroll = new BScroll('.recruitOut');
+      }
     }
 </script>
 
